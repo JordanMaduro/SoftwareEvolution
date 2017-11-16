@@ -13,9 +13,13 @@ public loc proj = |project://smallsql0.21_src|;
 public M3 model = createM3FromEclipseProject(proj);
 public set[loc] sources = files(model);
 public str source = readFile(file);
+
 public void run() {
+
 	println(sum([ size(split("\n", normalize(readFile(x)))) | x <- sources]));
+	
 }
+
 public str normalize(str source) {
 	
 	list[str] coms = comments(source);
